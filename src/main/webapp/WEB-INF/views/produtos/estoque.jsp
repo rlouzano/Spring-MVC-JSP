@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +10,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
-
 <body>
     <header>
         <nav class="navbar navbar-light bg-light">
@@ -40,7 +40,7 @@
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
                 <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
-                        <div style="background-color: #a38c6e;">
+                         <div style="background-color: #a38c6e;">
                             <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
                                 <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">Deshboard</a>
                             </nav>
@@ -178,101 +178,73 @@
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color: #a38c6e;">
                 </br></br>
-                <div style="background-color: white;" class="container">
-                    </br></br>
-                    <form action="/produtos/create" method="POST">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">CADASTRO DE PRODUTO</h4>
-                            <p>TODOS OS CAMPOS SÃO OBRIGATÓRIO PARA INCLUIR UM PRODUTO</p>
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 1</label>
-                                <input type="url" placeholder="https://imagem1" class="form-control-file" required
-                                    name="img1" id="exampleFormControlFile1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 2</label>
-                                <input type="url" placeholder="https://imagem2" required class="form-control-file"
-                                    name="img2" id="exampleFormControlFile1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 3</label>
-                                <input type="url" placeholder="https://imagem3" required class="form-control-file"
-                                    name="img3" id="exampleFormControlFile1">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Nome: </label>
-                            <input class="form-control" type="text" name="nome" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Descrição: </label>
-                            <textarea class="form-control" type="text" name="descricao" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Valor: </label>
-                            <input type="text" class="form-control" name="valor" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quantidade: </label>
-                            <input class="form-control" type="text" required name="quantidade" />
-                        </div>
-                        <div class="form-group">
-                            <label>Sexo: </label>
-                            <input class="form-control" type="text" required name="sexo" />
-                        </div>
-                        <div class="form-group">
-                            <label>Modelo: </label>
-                            <input class="form-control" type="text" name="modelo" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Altura: </label>
-                            <input class="form-control" type="text" name="altura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Busto: </label>
-                            <input class="form-control" type="text" name="busto" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Cintura: </label>
-                            <input class="form-control" type="text" name="cintura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quadril: </label>
-                            <input class="form-control" type="text" name="quadril" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Tamanho: </label>
-                            <input class="form-control" type="text" name="tamanho" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Categoria: </label>
-                            <input class="form-control" type="text" name="categoria" required />
-                        </div>
 
-                        <button style="
-            width: 1000px;
-            width: 1000px;
-            height: 39px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-left: 60px;" type="submit" class="btn btn-primary">
-                            Save
-                        </button>
-
-                        </br></br>
-                    </form>
-                </div>
-
+                                    <form action="/produtos/create" method="get">
+                                        <button class="btn btn-primary" type="submit">Adicionar</button>
+                                    </form>
+                                    <hr>
+                <table class="table" style="text-align: center;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#ID</th>
+                            <th scope="col">IMG</th>
+                            <th scope="col">CATEGORIA</th>
+                            <th scope="col">MODELO</th>
+                            <th scope="col">NOME</th>
+                            <th scope="col">QUANTIDADE</th>
+                            <th scope="col">SEXO</th>
+                            <th scope="col">TAMANHO</th>
+                            <th scope="col">VALOR</th>
+                            <th scope="col">METODO</th>
+                        </tr>
+                    </thead>
+                    <tbody style="background-color: white;">
+                        <c:forEach items="${produtos}" var="produto">
+                            <tr>
+                                <th scope="row">${produto.id}</th>
+                                <th scope="row"><img src="${produto.img1}"></th>
+                                <td>${produto.categoria}</td>
+                                <td>${produto.modelo}</td>
+                                <td>${produto.nome}</td>
+                                <td>
+                                    <form method="post" action="/produtos/alterar/${produto.id}">
+                                        <input type="hidden" name="_method" value="put" />
+                                        <input style="text-align: center; width: 42%;" class="form-control"
+                                            type="number" name="quantidade" value="${produto.quantidade}" />
+                                        <button class="btn btn-outline-primary"
+                                            style="margin-top: -65px;margin-left: 65px;" type="submit">Editar</button>
+                                    </form>
+                                </td>
+                                <td>${produto.sexo}</td>
+                                <td>${produto.tamanho}</td>
+                                <td>
+                                    <fmt:formatNumber value="${produto.valor}" type="currency" />
+                                </td>
+                                <td>
+                                    <form action="/produtos/excluir/${produto.id}" method="post">
+                                        <input type="hidden" name="_method" value="delete" />
+                                        <button class="btn btn-outline-danger" type="submit">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
                 <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1536" height="648"
                     style="display: block; height: 692px; width: 1639px;"></canvas>
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function confirmaExclusao(id) {
+            if (window.confirm('Tem certeza que deseja excluir')) {
+                location.href = "/produtos/excluir/" + id
+            }
+        }
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -178,93 +180,116 @@
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color: #a38c6e;">
                 </br></br>
-                <div style="background-color: white;" class="container">
+                <div style="background-color: white;">
                     </br></br>
-                    <form action="/produtos/create" method="POST">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">CADASTRO DE PRODUTO</h4>
-                            <p>TODOS OS CAMPOS SÃO OBRIGATÓRIO PARA INCLUIR UM PRODUTO</p>
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 1</label>
-                                <input type="url" placeholder="https://imagem1" class="form-control-file" required
-                                    name="img1" id="exampleFormControlFile1">
+                    <form action="/produtos/edit/${prod.id}" method="POST">
+                        <input type="hidden" name="_method" value="PUT" />
+                        <div class="container">
+                            <div class="rounded float-left" style="width: 275px;">
+                                <div>
+                                    <img src="${prod.img1}" class="ui-item__image" width="224" height="224">
+                                </div>
+                                </br>
+                                <div>
+                                    <img src="${prod.img2}" class="ui-item__image" width="100" height="100">
+                                    <img src="${prod.img3}" class="ui-item__image" width="100" height="100">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 2</label>
-                                <input type="url" placeholder="https://imagem2" required class="form-control-file"
-                                    name="img2" id="exampleFormControlFile1">
+                                <label>Nome: </label>
+                                <input class="form-control" style="width: 70%;" type="text" value="${prod.nome}" />
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 3</label>
-                                <input type="url" placeholder="https://imagem3" required class="form-control-file"
-                                    name="img3" id="exampleFormControlFile1">
+                                <label>Valor: </label>
+                                <input type="text" class="form-control" style="width: 70%;"
+                                    value="<fmt:formatNumber value=" ${prod.valor}" type="currency" />"/>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Nome: </label>
-                            <input class="form-control" type="text" name="nome" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Descrição: </label>
-                            <textarea class="form-control" type="text" name="descricao" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Valor: </label>
-                            <input type="text" class="form-control" name="valor" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quantidade: </label>
-                            <input class="form-control" type="text" required name="quantidade" />
-                        </div>
-                        <div class="form-group">
-                            <label>Sexo: </label>
-                            <input class="form-control" type="text" required name="sexo" />
-                        </div>
-                        <div class="form-group">
-                            <label>Modelo: </label>
-                            <input class="form-control" type="text" name="modelo" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Altura: </label>
-                            <input class="form-control" type="text" name="altura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Busto: </label>
-                            <input class="form-control" type="text" name="busto" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Cintura: </label>
-                            <input class="form-control" type="text" name="cintura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quadril: </label>
-                            <input class="form-control" type="text" name="quadril" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Tamanho: </label>
-                            <input class="form-control" type="text" name="tamanho" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Categoria: </label>
-                            <input class="form-control" type="text" name="categoria" required />
-                        </div>
+                            <div class="form-group">
+                                <label>Quantidade: </label>
+                                <input class="form-control" style="width: 70%;" type="text" name="quantidade"
+                                    value="${prod.quantidade}" />
+                            </div>
 
-                        <button style="
-            width: 1000px;
-            width: 1000px;
-            height: 39px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-left: 60px;" type="submit" class="btn btn-primary">
-                            Save
-                        </button>
+                            <div class="form-group">
+                                <label>Sexo: </label>
+                                <input class="form-control" style="width: 70%;" type="text" name="quantidade"
+                                    value="${prod.sexo}" />
+                            </div>
+                            </br>
+                            <div class="form-group">
+                                <label>Modelo: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.modelo}" />
+                            </div>
+                            <div class="form-group">
+                                <label>Descrição: </label>
+                                <textarea class="form-control" style="width: 95%;">${prod.descricao}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Altura: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.altura}" />
+                            </div>
 
-                        </br></br>
+                            <div class="form-group">
+                                <label>Busto: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.busto}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Cintura: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.cintura}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Quadril: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.quadril}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tamanho: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.tamanho}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Categoria: </label>
+                                <input class="form-control" style="width: 95%;" type="text" name="quantidade"
+                                    value="${prod.categoria}" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
                     </form>
+                    </br></br>
+                    <div class="card" style="width: 95%;">
+                        <h5 class="card-header">Perguntas e Respostas</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">De onde vem os produtos?</h5>
+                            <p class="card-text">Os produtos são entregues por nosso centro de distribuição localizado
+                                em São Paulo</p>
+                            <hr>
+                            </hr>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Posso retirar as peças ou entregam em alguma estação?</h5>
+                            <p class="card-text">Não, nós somos um e-commerce e não trabalhamos como loja fisica.</p>
+                            <hr>
+                            </hr>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Como posso realizar a troca do produto ?</h5>
+                            <p class="card-text">Peças intimas, não realizamos trocas.
+                                Para as demais peças o cliente tem até 7 dias úteis para
+                                comunicar sua troca na central de atendimento após o
+                                recebimento do produto</p>
+                            <hr>
+                            </hr>
+                        </div>
+                    </div>
+                    </br></br>
                 </div>
-
                 <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1536" height="648"
                     style="display: block; height: 692px; width: 1639px;"></canvas>
             </main>

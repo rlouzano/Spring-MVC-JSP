@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 
@@ -176,100 +177,32 @@
                     </ul>
                 </div>
             </nav>
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color: #a38c6e;">
-                </br></br>
-                <div style="background-color: white;" class="container">
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color: #a38c6e;">
                     </br></br>
-                    <form action="/produtos/create" method="POST">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">CADASTRO DE PRODUTO</h4>
-                            <p>TODOS OS CAMPOS SÃO OBRIGATÓRIO PARA INCLUIR UM PRODUTO</p>
-                        </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 1</label>
-                                <input type="url" placeholder="https://imagem1" class="form-control-file" required
-                                    name="img1" id="exampleFormControlFile1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 2</label>
-                                <input type="url" placeholder="https://imagem2" required class="form-control-file"
-                                    name="img2" id="exampleFormControlFile1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 3</label>
-                                <input type="url" placeholder="https://imagem3" required class="form-control-file"
-                                    name="img3" id="exampleFormControlFile1">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Nome: </label>
-                            <input class="form-control" type="text" name="nome" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Descrição: </label>
-                            <textarea class="form-control" type="text" name="descricao" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Valor: </label>
-                            <input type="text" class="form-control" name="valor" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quantidade: </label>
-                            <input class="form-control" type="text" required name="quantidade" />
-                        </div>
-                        <div class="form-group">
-                            <label>Sexo: </label>
-                            <input class="form-control" type="text" required name="sexo" />
-                        </div>
-                        <div class="form-group">
-                            <label>Modelo: </label>
-                            <input class="form-control" type="text" name="modelo" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Altura: </label>
-                            <input class="form-control" type="text" name="altura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Busto: </label>
-                            <input class="form-control" type="text" name="busto" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Cintura: </label>
-                            <input class="form-control" type="text" name="cintura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quadril: </label>
-                            <input class="form-control" type="text" name="quadril" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Tamanho: </label>
-                            <input class="form-control" type="text" name="tamanho" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Categoria: </label>
-                            <input class="form-control" type="text" name="categoria" required />
-                        </div>
-
-                        <button style="
-            width: 1000px;
-            width: 1000px;
-            height: 39px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-left: 60px;" type="submit" class="btn btn-primary">
-                            Save
-                        </button>
-
-                        </br></br>
-                    </form>
-                </div>
-
-                <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1536" height="648"
-                    style="display: block; height: 692px; width: 1639px;"></canvas>
-            </main>
-        </div>
-    </div>
+                    <div style="background-color: white;">
+                    </br></br>
+                    <div class="container">
+                <div class="container" style="background-color: white;">
+                    <c:forEach items="${lista}" var="produto">
+                       <div>
+                                      <div class="rounded float-left" style="width: 255px; text-align: center;">
+                                          <div>
+                                              <img src="${produto.img1}" class="ui-item__image" width="224" height="224">
+                                          </div>
+                                          <div style="text-align: center;">
+                                              <a href="/produtos/edit/${produto.id}">${produto.nome}</a>
+                                              <p style="color: #007bff" ;>
+                                                  <fmt:formatNumber value="${produto.valor}" type="currency" /></a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </c:forEach>
+                              </div>
+                                     <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1536" height="648"
+                                              style="display: block; height: 692px; width: 1639px;"></canvas>
+                                      </main>
+                                  </div>
+                              </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

@@ -178,93 +178,52 @@
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4" style="background-color: #a38c6e;">
                 </br></br>
-                <div style="background-color: white;" class="container">
-                    </br></br>
-                    <form action="/produtos/create" method="POST">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">CADASTRO DE PRODUTO</h4>
-                            <p>TODOS OS CAMPOS SÃO OBRIGATÓRIO PARA INCLUIR UM PRODUTO</p>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://dafitistatic-a.akamaihd.net/dynamic_yield/cms/static/images/23a08bacc668d__DESTAQUE_VERAO21.gif"
+                                class="d-block w-100" alt="...">
                         </div>
-                        <div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 1</label>
-                                <input type="url" placeholder="https://imagem1" class="form-control-file" required
-                                    name="img1" id="exampleFormControlFile1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 2</label>
-                                <input type="url" placeholder="https://imagem2" required class="form-control-file"
-                                    name="img2" id="exampleFormControlFile1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Imagem 3</label>
-                                <input type="url" placeholder="https://imagem3" required class="form-control-file"
-                                    name="img3" id="exampleFormControlFile1">
-                            </div>
+                        <div class="carousel-item">
+                            <img src="https://dafitistatic-a.akamaihd.net/dynamic_yield/cms/static/images/9dd3428a15b5__DESTAQUE_VERAO_MASC.png"
+                                class="d-block w-100" alt="...">
                         </div>
-                        <div class="form-group">
-                            <label>Nome: </label>
-                            <input class="form-control" type="text" name="nome" required />
+                        <div class="carousel-item">
+                            <img src="https://dafitistatic-a.akamaihd.net/dynamic_yield/cms/static/tricae/images/2160ddfe997f4__DESTAQUE_VERAO21.gif"
+                                class="d-block w-100" alt="...">
                         </div>
-                        <div class="form-group">
-                            <label>Descrição: </label>
-                            <textarea class="form-control" type="text" name="descricao" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Valor: </label>
-                            <input type="text" class="form-control" name="valor" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quantidade: </label>
-                            <input class="form-control" type="text" required name="quantidade" />
-                        </div>
-                        <div class="form-group">
-                            <label>Sexo: </label>
-                            <input class="form-control" type="text" required name="sexo" />
-                        </div>
-                        <div class="form-group">
-                            <label>Modelo: </label>
-                            <input class="form-control" type="text" name="modelo" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Altura: </label>
-                            <input class="form-control" type="text" name="altura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Busto: </label>
-                            <input class="form-control" type="text" name="busto" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Cintura: </label>
-                            <input class="form-control" type="text" name="cintura" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Quadril: </label>
-                            <input class="form-control" type="text" name="quadril" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Tamanho: </label>
-                            <input class="form-control" type="text" name="tamanho" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Categoria: </label>
-                            <input class="form-control" type="text" name="categoria" required />
-                        </div>
-
-                        <button style="
-            width: 1000px;
-            width: 1000px;
-            height: 39px;
-            padding-left: 15px;
-            padding-right: 15px;
-            margin-left: 60px;" type="submit" class="btn btn-primary">
-                            Save
-                        </button>
-
-                        </br></br>
-                    </form>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+                </br></br></br>
+                <div class="card text-center">
+                    <div class="card-header">
+                        Acessa nosssos produtos
+                    </div>
 
+                    <div class="card-body">
+                        <ul><img src="https://f088b146830a59b5.cdn.gocache.net/uploads/noticias/2020/04/05/5e8a3c4e97637.jpg"
+                                class="card-img-top" alt="...">
+                            <h5 class="card-title">Selecione aqui para acessar nossos produtos</h5>
+                            <a href="/produtos/listar" class="btn btn-primary">Link</a>
+                        </ul>
+                    </div>
+                    <div class="card-footer text-muted">
+                        2 days ago
+                    </div>
+                </div>
                 <canvas class="my-4 w-100 chartjs-render-monitor" id="myChart" width="1536" height="648"
                     style="display: block; height: 692px; width: 1639px;"></canvas>
             </main>

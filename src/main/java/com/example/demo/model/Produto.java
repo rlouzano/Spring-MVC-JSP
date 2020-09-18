@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,41 +10,47 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_PRODUTO")
-public class Produto  {
+public class Produto {
 
     @Id //Primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Auto_increment
     private Integer id;
+    private String sexo;
+    private String nome;
+    private int quantidade;
+    private double valor;
     private String img1;
     private String img2;
-    private String img3;
-    private String nome;
-    private String pergunta1;
-    private String resposta1;
-    private String pergunta2; //100% algodão
-    private String resposta2;
-    private String pergunta3;
-    private String resposta3;
+    private String img3; //100% algodão
+    private String modelo;
     private String descricao;
-    private String quantidade;
+    private String altura;
+    private String busto;
+    private String cintura;
+    private String quadril;
+    private String tamanho;
+    private String categoria;
 
     public Produto() {
     }
 
-    public Produto(Integer id, String img1, String img2, String img3, String nome, String pergunta1, String resposta1, String pergunta2, String resposta2, String pergunta3, String resposta3, String descricao, String quantidade) {
+    public Produto(Integer id, String sexo, String nome, int quantidade, double valor, String img1, String img2, String img3, String modelo, String descricao, String altura, String busto, String cintura, String quadril, String tamanho, String categoria) {
         this.id = id;
+        this.sexo = sexo;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.valor = valor;
         this.img1 = img1;
         this.img2 = img2;
         this.img3 = img3;
-        this.nome = nome;
-        this.pergunta1 = pergunta1;
-        this.resposta1 = resposta1;
-        this.pergunta2 = pergunta2;
-        this.resposta2 = resposta2;
-        this.pergunta3 = pergunta3;
-        this.resposta3 = resposta3;
+        this.modelo = modelo;
         this.descricao = descricao;
-        this.quantidade = quantidade;
+        this.altura = altura;
+        this.busto = busto;
+        this.cintura = cintura;
+        this.quadril = quadril;
+        this.tamanho = tamanho;
+        this.categoria = categoria;
     }
 
     public Integer getId() {
@@ -51,6 +59,38 @@ public class Produto  {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public String getImg1() {
@@ -77,60 +117,12 @@ public class Produto  {
         this.img3 = img3;
     }
 
-    public String getNome() {
-        return nome;
+    public String getModelo() {
+        return modelo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getPergunta1() {
-        return pergunta1;
-    }
-
-    public void setPergunta1(String pergunta1) {
-        this.pergunta1 = pergunta1;
-    }
-
-    public String getResposta1() {
-        return resposta1;
-    }
-
-    public void setResposta1(String resposta1) {
-        this.resposta1 = resposta1;
-    }
-
-    public String getPergunta2() {
-        return pergunta2;
-    }
-
-    public void setPergunta2(String pergunta2) {
-        this.pergunta2 = pergunta2;
-    }
-
-    public String getResposta2() {
-        return resposta2;
-    }
-
-    public void setResposta2(String resposta2) {
-        this.resposta2 = resposta2;
-    }
-
-    public String getPergunta3() {
-        return pergunta3;
-    }
-
-    public void setPergunta3(String pergunta3) {
-        this.pergunta3 = pergunta3;
-    }
-
-    public String getResposta3() {
-        return resposta3;
-    }
-
-    public void setResposta3(String resposta3) {
-        this.resposta3 = resposta3;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
     }
 
     public String getDescricao() {
@@ -141,12 +133,51 @@ public class Produto  {
         this.descricao = descricao;
     }
 
-    public String getQuantidade() {
-        return quantidade;
+    public String getAltura() {
+        return altura;
     }
 
-    public void setQuantidade(String quantidade) {
-        this.quantidade = quantidade;
+    public void setAltura(String altura) {
+        this.altura = altura;
+    }
+
+    public String getBusto() {
+        return busto;
+    }
+
+    public void setBusto(String busto) {
+        this.busto = busto;
+    }
+
+    public String getCintura() {
+        return cintura;
+    }
+
+    public void setCintura(String cintura) {
+        this.cintura = cintura;
+    }
+
+    public String getQuadril() {
+        return quadril;
+    }
+
+    public void setQuadril(String quadril) {
+        this.quadril = quadril;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 }
-
